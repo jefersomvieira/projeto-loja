@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--essas fonts foram pegas no google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>TechClub Store</title>
+</head>
+
+<body>
+    <!--header e para representar o cabeçalho do projeto-->
+    <header>
+        <!--sempre cuidado nas class para usar css-->
+        <div class="logo"> TechClub</div> Store</div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html">Produtos</a></li>
+                <li><a href="index.html">Contatos</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <!--main e usado para o conteudo central -->
+    <main class="conteiner">
+        <div class="tech-circulo">
+            <!--essas div sem conteudo serão ultilizadas no css-->
+            <div class="circulo"></div>
+            <div class="circulo"></div>
+            <div class="circulo"></div>
+            <div class="circulo"></div>
+        </div>
+
+        <!--as div sem traço porque são duas class diferentes para configurar com javascript -->
+
+        <div class="lista">
+
+            <div class="item ativo">
+                <div class="img-produto">
+                    <!--cada tag tem sua class para facilitar configurações no CSS-->
+                    <img src="imagens/apple-watch.png" alt="Apple Watch">
+                </div>
+                <div class="conteudo">
+                    <p class="tag-produto">Novo Lançamento</p>
+                    <p class="nome-produto">Apple Watch series 10</p>
+                    <p class="descricao"> O smartwatch mais avançado do mercado. Monitoramento completo da saúde,
+                            GPS integrado, tela AMOLED de alta resolução e bateria de alta duração. Perfeito para
+                            acompanhar seu estilo de vida ativo.</p>
+                    <button class="botao"><a href="index.html">Saiba mais</a></button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="img-produto">
+                    <!--cada tag tem sua class para facilitar configurações no CSS-->
+                    <img src="imagens/air-pods.png" alt="Air Pods Max">
+                </div>    
+                <div class="conteudo">
+                    <p class="tag-produto">Som premiun</p>
+                    <p class="nome-produto">Air Pods Max</p>
+                    <p class="descricao"> Expremente o som na forma mais pura. Cancelamento de ruído adaptativo.
+                            Qualidade de áudio excepcional e design ergonômico para máximo conforto. Sua música nunca
+                            soou tão bem.</p>
+                    <button class="botao"><a href="index.html">Saiba mais</a></button>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="img-produto">
+                    <!--cada tag tem sua class para facilitar configurações no CSS-->
+                    <img src="imagens/vision-pro.png" alt="Vision Pro">
+                </div>   
+                <div class="conteudo">
+                    <p class="tag-produto">Alta Performace</p>
+                    <p class="nome-produto">Vision pro</p>
+                    <p class="descricao">Realidade aumentada imersiva com Apple Vision Pro: inovação ao alcance dos
+                    olhos</p>
+                    <button class="botao"><a href="index.html">Saiba mais</a></button>
+                </div>
+            </div>
+        </div>
+            <!-- esses svg para incones de suas escolha -->
+            <div class="setas">
+                <button class="botao-seta" id="anterior">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z" />
+                    </svg>
+                </button>
+
+                <button class="botao-seta" id="proxima">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                        <path
+                            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                    </svg>
+                </button>
+            </div>
+            <!--aqui sao indicadores para saber a pagina que esta com o mesmo sistema das imagens, apenas a classe ativa que ficara na frente -->
+            <div class="indicador">
+                <div class="numero">01</div>
+                <div class="pontos">
+                    <div class="ponto ativo"></div>
+                    <div class="ponto"></div>
+                    <div class="ponto"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="scripts.js"></script>
+</html>

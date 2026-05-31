@@ -1,0 +1,363 @@
+/*usando * ele e um seletor universal o CSS sera aplicado todos os seletore*/
+@charset "UTF-8";
+* {
+    margin: 0 ;/*margem para fora*/
+    padding: 0;/*margem para dentro */
+    box-sizing: border-box;/*e uma maneira de calcular as distancias das 'caixas' uma das outras*/
+    list-style: none;/*os pontos das listas */
+    font-family: "Montserrat", sans-serif; /*font do projeto todo caso precise de outra font faça no seletor expecifico*/
+}
+/*lembrando sempre faça seu CSS na ordem que escreveu as tags class e id no codigo*/
+
+body{
+    background-color: #0f0f1e;/*com do fundo*/
+    color: #ffffff;
+    font-size: 16px;
+    overflow: hidden;/*oque não estiver na tela ele esconde 'basicamente'*/
+}
+header{
+    position: fixed;/*para fixalo*/
+    width: 99vw;/*essa foi a largura da nossa caixa*/
+    top: 0;
+    padding: 20px 50px;
+    display: flex;/*para colocar um do lado do outro*/
+    justify-content: space-between;/*basicamente para para cada canto*/
+    align-items: center;
+    z-index: 3;
+}
+
+.logo{
+    font-family: "Orbitron", sans-serif; /*outra font*/
+    font-size: 2rem;/*outra medida de tamanho*/
+    font-weight: 900;/*grossura da font*/
+    color: #00f7ff;
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);/*e uma sombra saindo da letra*/
+}
+a {
+    font-family:  "Montserrat", sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+    color: #00f7ff;
+}
+header nav ul{/*basicamente eu disse vai na caixa HEADER, depois na caixa NAV e depois na caixa UL*/
+    display: flex;/*itens um do lado do outro*/
+    gap: 48px;
+}
+
+header nav ul li {/*mesma coisa citada acima so mandei abrir mais uma caixa*/
+    cursor: pointer;/*virar maozinha quando o mouse passar em cima*/
+    position: relative;
+    padding: 5px 0 ;
+
+}
+/*esse e com se fosse um filho do de cima */
+header nav ul li::after{
+    content: '';
+    position: absolute;
+    left: 0 ;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #00f7ff;
+    transition: width 0.5s ease;
+}
+
+header nav ul li:hover::after{/*basicamente e para ativar a animação apenas quando o mouse passar em cima*/
+    width: 100%;
+}/*da linha 36 ate a 61 foi apenas para criar a animação*/
+
+.conteiner{
+    height:100vh;
+    position: relative;
+    background: linear-gradient(135deg, #0f0f1e 0%, #1f1f3a 100%);/*basicamente fazer um degrade de uma cor para outra*/
+    overflow: hidden;
+}
+/*cuidado para fazer as animações de antes e depois com suas position*/
+.conteiner::before{
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;/*para ficar meio esfumacada*/
+    background: radial-gradient(circle, rgba(0, 247, 255, 0.2 ) 0%, rgba(15, 15, 30, 0)70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    /*position, top, left e transform isso tudo para alinhar bem no centro*/
+    filter: blur(50%);
+    z-index: 1;
+    /*não esqueça de configurar a animação*/
+    animation: pulso 2s infinite alternate;
+}
+/*o @keyframe e para criar uma animação */
+@keyframes pulso {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+.lista{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.item{
+    position: absolute;
+    inset: 0;/*todas as posições 0 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+
+    
+}
+
+.ativo{
+    opacity: 1;
+}
+
+.img-produto{
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    /*animação*/
+    transform: translateX(200px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+.ativo .img-produto {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+.img-produto img {
+    max-width: 80%;
+    max-height: 60%;
+    filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.3));
+}
+
+.conteudo {
+    width: 55%;
+    padding-right: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 2 ;
+    flex-direction: column;
+}
+
+.tag-produto{
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #00f7ff;
+    font-weight: 600;
+    letter-spacing: 2px;/*espaço entre as letras*/
+    margin-bottom: 10px;
+    /*animação*/
+    transform: translateX(200px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+.ativo .tag-produto {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+.nome-produto{
+    font-size: 4.5rem;
+    font-family: "Orbitron", sans-serif;
+    line-height: 1.1; /*espaçamento das linhas*/
+    margin-bottom: 20px;
+    /*animação*/
+    transform: translateX(200px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+.ativo .nome-produto {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.descricao{
+    font-size: 1.1rem;
+    color: #b8b8d0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 600px;/*ser textos peuqenos lembresse de aplicar tamanho, assim fica mais organizado na tela pq ajuste altomatico do navegador nem sempre ajusta da meneira ideal*/
+    /*animação*/
+    transform: translateX(200px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+.ativo .descricao {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/*como sao varias imagens textos lembrese de por a msm class assim vc configura todas de uma unica vez*/
+
+.botao{
+    padding: 12px 16px;
+    background: linear-gradient(90deg, #00f7ff, #0066ff);
+    border-radius: 30px;
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    /*animação*/
+    transform: translateX(200px);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    transition-delay: 0.5s;
+}
+.ativo .botao {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.botao:hover{
+    color: white;
+    background: rgba(0, 247, 255, 0.3 );
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5 );
+    border-color: #00f7ff;
+    transition: 0.5s ease;
+}
+
+
+.setas{
+    position: absolute;
+    width: 90%;
+    display: flex;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: space-between;
+    z-index: 5;
+}
+
+.botao-seta {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 247, 255, 0.3 );
+}
+
+.botao-seta:hover{
+    background-color: rgba(0, 247, 255, 0.3 );
+    border-color: #00f7ff;
+}
+
+.indicador{
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 5;
+}
+
+.numero{
+    font-family: "Orbitron", sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.pontos{
+    display: flex;
+    gap: 10px;
+}
+
+
+.ponto{
+    width: 40px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.ponto.ativo{
+    background-color: #00f7ff;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5 );
+}
+/*daqui para baixo e uma 'graça' com o css isso aqui e so um efeito basico de bolhas, mas tenha cuidado*/
+.tech-circulo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.circulo{
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 247, 255, 0.2 );
+    animation: pulso2 1.5s  infinite alternate;
+    box-shadow: 0 0 10px rgba(0, 247, 255, 0.5 );
+}
+@keyframes pulso2 {
+    0% {
+        opacity: 0.5;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    100%{
+        opacity: 2;
+        transform: translate(-50%, -50%) scale(1.1);
+    }
+}
+/*quando temos varias class na mesma div voce consegue pegar um por vez sem fica usando varias class*/
+
+.circulo:nth-child(1){
+    width:200px ;
+    height: 200px;
+    top: 10%;
+    left: 10%;
+}
+
+.circulo:nth-child(2){
+    width:300px ;
+    height: 300px;
+    top: 60%;
+    left: 80%;
+}
+
+.circulo:nth-child(3){
+    width:150px ;
+    height: 150px;
+    top: 70%;
+    left: 20%;
+}
+
+.circulo:nth-child(4){
+    width:200px ;
+    height: 200px;
+    top: 20%;
+    left: 70%;
+}
